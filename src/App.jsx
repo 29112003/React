@@ -1,24 +1,47 @@
-// day 5.1 timer and from handling 
+// day 5.2 form handling 
+
 import './index.css'
 
-import React, { useState } from 'react'
+import React from 'react'
 
 const App = () => {
 
-  const [timer, settimer] = useState(new Date().toLocaleTimeString())
-
-  setInterval(()=>{
-      settimer(new  Date().toLocaleTimeString())
-  },1000)
-
   return (
     <div>
-      {timer}
+      <from>
+        <input name="username" placeholder="username " ></input>
+        <input type='submit' >submit</input>
+      </from>
     </div>
   )
 }
 
 export default App
+
+
+
+
+// day 5.1 timer and from handling 
+// import './index.css'
+
+// import React, { useState } from 'react'
+
+// const App = () => {
+
+//   const [timer, settimer] = useState(new Date().toLocaleTimeString())
+
+//   setInterval(()=>{
+//       settimer(new  Date().toLocaleTimeString())
+//   },1000)
+
+//   return (
+//     <div>
+//       {timer}
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
