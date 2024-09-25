@@ -1,3 +1,24 @@
+import './App.css'
+import React from 'react'
+
+  let info = () =>{
+    console.log("hello virendra")
+  }
+  let advanced = (data) =>{
+    console.log(data)
+  }
+
+const App = () => {
+  return (
+    <div>
+      <button onClick={info} className='bg-red-600 rounded py-2 px-5' >hello to virendra</button>
+      <button onClick={()=>advanced("kaise ho adars")} className='bg-red-600 rounded py-2 px-5' >hello to adarsh</button>
+    </div>
+  )
+}
+
+export default App
+
 
 
 
