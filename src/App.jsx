@@ -1,27 +1,52 @@
-// day 4 useState 
+// day 5.1 timer and from handling 
 import './index.css'
+
 import React, { useState } from 'react'
-// const export and {} hai and name likha hai
+
 const App = () => {
 
-  const [title, settitle] = useState("i am learning backend...")
-  // let title = "i am learning backend..."
+  const [timer, settimer] = useState(new Date().toLocaleTimeString())
 
-  const change = ()=>{
-    // title = "now learning React..."
-    settitle("now learning React...")
-    console.log(title)
-  }
+  setInterval(()=>{
+      settimer(new  Date().toLocaleTimeString())
+  },1000)
 
   return (
     <div>
-      <h1>{title}</h1>
-      <button onClick={()=>change()} className='px-5 py-2 bg-slate-600 m-5' >change course</button>
+      {timer}
     </div>
   )
 }
 
 export default App
+
+
+
+
+// day 4 useState 
+// import './index.css'
+// import React, { useState } from 'react'
+// // const export and {} hai and name likha hai
+// const App = () => {
+
+//   const [title, settitle] = useState("i am learning backend...")
+//   // let title = "i am learning backend..."
+
+//   const change = ()=>{
+//     // title = "now learning React..."
+//     settitle("now learning React...")
+//     console.log(title)
+//   }
+
+//   return (
+//     <div>
+//       <h1>{title}</h1>
+//       <button onClick={()=>change()} className='px-5 py-2 bg-slate-600 m-5' >change course</button>
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 // day 3 function in react 
