@@ -1,28 +1,52 @@
+// day 5.2 form handling 
 
-
-
-
-// day 5.1 timer and from handling 
 import './index.css'
 
-import React, { useState } from 'react'
+import React from 'react'
 
 const App = () => {
 
-  const [timer, settimer] = useState(new Date().toLocaleTimeString())
-
-  setInterval(()=>{
-      settimer(new  Date().toLocaleTimeString())
-  },1000)
+  const runme = (e)=>{
+    e.preventDefault();
+    console.log(e.target.username.value)
+  }
 
   return (
     <div>
-      {timer}
+      <form onSubmit={runme} >
+        <input type="text" placeholder='username' name='username'  />
+        <input type="submit" value="done" />
+      </form>
     </div>
   )
 }
 
 export default App
+
+
+
+
+// day 5.1 timer and from handling 
+// import './index.css'
+
+// import React, { useState } from 'react'
+
+// const App = () => {
+
+//   const [timer, settimer] = useState(new Date().toLocaleTimeString())
+
+//   setInterval(()=>{
+//       settimer(new  Date().toLocaleTimeString())
+//   },1000)
+
+//   return (
+//     <div>
+//       {timer}
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
