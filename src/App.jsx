@@ -1,27 +1,56 @@
-// day 5.2 form handling 
-
 import './index.css'
 
-import React from 'react'
+// 1. Counter Application {practice}
+// Create a button that increments a number on each click.
+// Add another button to reset the counter to 0.
+
+import React, { useState } from 'react'
 
 const App = () => {
 
-  const runme = (e)=>{
-    e.preventDefault();
-    console.log(e.target.username.value)
-  }
+  const [number, setnumber] = useState(0)
 
+  const increment = ()=>{
+    setnumber((prevNumber) => prevNumber+1)
+  }
+  const reset = ()=>{
+    setnumber(0)
+  }
   return (
-    <div>
-      <form onSubmit={runme} >
-        <input type="text" placeholder='username' name='username'  />
-        <input type="submit" value="done" />
-      </form>
+    <div className="text-center" >
+      <button onClick={increment} className="bg-slate-600 px-4 py-1 m-10 rounded inline-block text-white text-center" >increament</button>
+      <h1 className="px-3 py-1 bg-blue-500 rounded inline-block" >{number}</h1>
+      <button onClick={reset} className="bg-red-500 px-4 py-1 m-10 rounded inline-block text-white text-center" >reset</button>
     </div>
   )
 }
 
 export default App
+
+
+// day 5.2 form handling 
+
+
+// import React from 'react'
+
+// const App = () => {
+
+//   const runme = (e)=>{
+//     e.preventDefault();
+//     console.log(e.target.username.value)
+//   }
+
+//   return (
+//     <div>
+//       <form onSubmit={runme} >
+//         <input type="text" placeholder='username' name='username'  />
+//         <input type="submit" value="done" />
+//       </form>
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
