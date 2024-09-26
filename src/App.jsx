@@ -1,47 +1,75 @@
-import './index.css'
-import './App.css'
+import "./index.css";
+import "./App.css";
 
-// day 6.1 object-destructuring 
-
-import React from 'react'
+// day 6.2 two-way binding
+import React from "react";
+import { useState } from "react";
 
 const App = () => {
+  const [username, setusername] = useState("");
 
-const submitHandler = (e)=>{
-  e.preventDefault()
-  const {firstname , lastname , email , contact  , password} = e.target
+  const submitHandler = (e) => {
+    e.preventDefault();
+  };
 
-  const fromDetails = {
-    firstname: firstname.value,
-    lastname: lastname.value,
-    email: email.value,
-    contact: contact.value,
-    password: password.value
-  }
 
-  console.log(fromDetails)
-
-}
-
+  console.log(username)
 
   return (
     <div>
-      <form onSubmit={submitHandler} >
-        <input type="text" placeholder="firstname" name="firstname" />
-        <input type="text" placeholder="lastname" name="lastname" />
-        <input type="email" placeholder="email" name="email" />
-        <input type="number" placeholder="contact" name="contact" />
-        <input type="password" placeholder="password" name="password" />
-        <button>submit</button>
+      <form onSubmit={submitHandler}>
+        <input 
+        type="text" 
+        placeholder="username" 
+        name="username" 
+        onChange={(e)=>setusername(e.target.value)}
+        value={username}
+        />
+        <button >submit</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
 
+// day 6.1 object-destructuring
 
+// import React from 'react'
 
+// const App = () => {
+
+// const submitHandler = (e)=>{
+//   e.preventDefault()
+//   const {firstname , lastname , email , contact  , password} = e.target
+
+//   const fromDetails = {
+//     firstname: firstname.value,
+//     lastname: lastname.value,
+//     email: email.value,
+//     contact: contact.value,
+//     password: password.value
+//   }
+
+//   console.log(fromDetails)
+
+// }
+
+//   return (
+//     <div>
+//       <form onSubmit={submitHandler} >
+//         <input type="text" placeholder="firstname" name="firstname" />
+//         <input type="text" placeholder="lastname" name="lastname" />
+//         <input type="email" placeholder="email" name="email" />
+//         <input type="number" placeholder="contact" name="contact" />
+//         <input type="password" placeholder="password" name="password" />
+//         <button>submit</button>
+//       </form>
+//     </div>
+//   )
+// }
+
+// export default App
 
 // 1. Counter Application {practice}
 // Create a button that increments a number on each click.
@@ -70,9 +98,7 @@ export default App
 
 // export default App
 
-
-// day 5.2 form handling 
-
+// day 5.2 form handling
 
 // import React from 'react'
 
@@ -95,10 +121,7 @@ export default App
 
 // export default App
 
-
-
-
-// day 5.1 timer and from handling 
+// day 5.1 timer and from handling
 // import './index.css'
 
 // import React, { useState } from 'react'
@@ -120,10 +143,7 @@ export default App
 
 // export default App
 
-
-
-
-// day 4 useState 
+// day 4 useState
 // import './index.css'
 // import React, { useState } from 'react'
 // // const export and {} hai and name likha hai
@@ -148,8 +168,7 @@ export default App
 
 // export default App
 
-
-// day 3 function in react 
+// day 3 function in react
 
 // import './App.css'
 // import React from 'react'
@@ -171,9 +190,6 @@ export default App
 // }
 
 // export default App
-
-
-
 
 // day 1 and 2 json in view {browser} and Component
 // import './App.css'
@@ -213,7 +229,7 @@ export default App
 //   return (
 //     <>
 //       <h1>{x}</h1>
-//       <h1 >this is react vite boilerplate {import.meta.env.VITE_API}</h1> 
+//       <h1 >this is react vite boilerplate {import.meta.env.VITE_API}</h1>
 //       <About/>
 //       <Home/>
 //       <Nav/>
