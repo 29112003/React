@@ -1,31 +1,74 @@
 import './index.css'
+import './App.css'
 
-// 1. Counter Application {practice}
-// Create a button that increments a number on each click.
-// Add another button to reset the counter to 0.
+// day 6.1 object-destructuring 
 
-import React, { useState } from 'react'
+import React from 'react'
 
 const App = () => {
 
-  const [number, setnumber] = useState(0)
+const submitHandler = (e)=>{
+  e.preventDefault()
+  const {firstname , lastname , email , contact  , password} = e.target
 
-  const increment = ()=>{
-    setnumber((prevNumber) => prevNumber+1)
+  const fromDetails = {
+    firstname: firstname.value,
+    lastname: lastname.value,
+    email: email.value,
+    contact: contact.value,
+    password: password.value
   }
-  const reset = ()=>{
-    setnumber(0)
-  }
+
+  console.log(fromDetails)
+
+}
+
+
   return (
-    <div className="text-center" >
-      <button onClick={increment} className="bg-slate-600 px-4 py-1 m-10 rounded inline-block text-white text-center" >increament</button>
-      <h1 className="px-3 py-1 bg-blue-500 rounded inline-block" >{number}</h1>
-      <button onClick={reset} className="bg-red-500 px-4 py-1 m-10 rounded inline-block text-white text-center" >reset</button>
+    <div>
+      <form onSubmit={submitHandler} >
+        <input type="text" placeholder="firstname" name="firstname" />
+        <input type="text" placeholder="lastname" name="lastname" />
+        <input type="email" placeholder="email" name="email" />
+        <input type="number" placeholder="contact" name="contact" />
+        <input type="password" placeholder="password" name="password" />
+        <button>submit</button>
+      </form>
     </div>
   )
 }
 
 export default App
+
+
+
+
+// 1. Counter Application {practice}
+// Create a button that increments a number on each click.
+// Add another button to reset the counter to 0.
+
+// import React, { useState } from 'react'
+
+// const App = () => {
+
+//   const [number, setnumber] = useState(0)
+
+//   const increment = ()=>{
+//     setnumber((prevNumber) => prevNumber+1)
+//   }
+//   const reset = ()=>{
+//     setnumber(0)
+//   }
+//   return (
+//     <div className="text-center" >
+//       <button onClick={increment} className="bg-slate-600 px-4 py-1 m-10 rounded inline-block text-white text-center" >increament</button>
+//       <h1 className="px-3 py-1 bg-blue-500 rounded inline-block" >{number}</h1>
+//       <button onClick={reset} className="bg-red-500 px-4 py-1 m-10 rounded inline-block text-white text-center" >reset</button>
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 // day 5.2 form handling 
