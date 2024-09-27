@@ -1,0 +1,25 @@
+--------------------------------------------------------------------------------------------------------------------------
+What is aria-label in JSX?
+Definition:
+
+The aria-label attribute provides an accessible name or description for a JSX element, typically used in React components.
+Purpose:
+
+To describe the function of an element that lacks visible text, especially for interactive elements like buttons or links.
+Target Audience:
+
+Users of assistive technologies (e.g., screen readers) that read the aria-label to explain the element’s purpose.
+Importance:
+
+Enhances accessibility, ensuring all users, including those with visual impairments, can understand the functionality of UI components.
+Example Usage:
+
+jsx
+<button aria-label="Change background color">
+  <span>🎨</span> {/* Icon for color change */}
+</button>
+Benefits:
+
+Improves user experience for assistive technology users.
+Helps meet web accessibility standards (e.g., WCAG).
+--------------------------------------------------------------------------------------------------------------------------
