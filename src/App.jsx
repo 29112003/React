@@ -2,90 +2,99 @@ import "./index.css";
 import "./App.css";
 
 // day 7 sending error message and radio input 
-
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const App = () => {
   const [username, setUsername] = useState("");
-  const [error, setError] = useState(false);
   const [gender, setGender] = useState("");
+  const [error, setError] = useState({ username: false, gender: false });
+
+  const validateForm = () => {
+    const usernameError = username.length < 5;
+    const genderError = !gender;
+    
+    setError({
+      username: usernameError,
+      gender: genderError,
+    });
+    
+    return !(usernameError || genderError);
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(e.target.username.value);
-  };
-
-  const inputHandler = (e) => {
-    {
-      e.target.value.length < 5 ? setError(true) : setError(false);
+    if (validateForm()) {
+      console.log("Form submitted successfully");
+      console.log({ username, gender });
+      // Perform further actions like API calls here
     }
   };
-  console.log(gender);
 
   return (
-    <div>
+    <div className="flex items-center justify-center min-h-screen bg-rose-300">
       <form
         onSubmit={submitHandler}
-        className="bg-rose-300 w-screen py-5 px-3 flex-col items-center justify-center "
+        className="bg-white w-full max-w-md p-8 rounded-lg shadow-md"
       >
-        <input
-          className="rounded "
-          type="text"
-          placeholder="username"
-          name="username"
-          onInput={inputHandler}
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-          value={username}
-        />
-        {error && (
-          <p className="text-red-950 ">
-            {" "}
-            username can't be under 5 characters{" "}
-          </p>
-        )}
-        <br />
-        <br />
-        <input
-          type="radio"
-          name="gender"
-          checked={gender === "male" ? true : false}
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-          defaultValue="others"
-        />
-        others
-        <br />
-        <br />
-        <input
-          type="radio"
-          name="gender"
-          checked={gender === "male" ? true : false}
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-          defaultValue="male"
-        />
-        male
-        <br />
-        <br />
-        <input
-          type="radio"
-          name="gender"
-          checker={gender === "female" ? true : false}
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-          defaultValue="female"
-        />
-        female
-        <br />
-        <br />
-        <button className="bg-blue-700 px-2 text-white ml-2 rounded">
-          submit
+        <div className="mb-4">
+          <input
+            className={`border p-2 w-full rounded ${error.username ? 'border-red-500' : 'border-gray-300'}`}
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            onInput={(e) => setError({ ...error, username: e.target.value.length < 5 })}
+          />
+          {error.username && (
+            <p className="text-red-500 text-sm mt-1">Username must be at least 5 characters long</p>
+          )}
+        </div>
+
+        <div className="mb-4">
+          <label className="block mb-2">Gender:</label>
+          <div className="flex items-center mb-2">
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              checked={gender === "male"}
+              onChange={(e) => setGender(e.target.value)}
+            />
+            <label className="ml-2">Male</label>
+          </div>
+
+          <div className="flex items-center mb-2">
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              checked={gender === "female"}
+              onChange={(e) => setGender(e.target.value)}
+            />
+            <label className="ml-2">Female</label>
+          </div>
+
+          <div className="flex items-center">
+            <input
+              type="radio"
+              name="gender"
+              value="other"
+              checked={gender === "other"}
+              onChange={(e) => setGender(e.target.value)}
+            />
+            <label className="ml-2">Other</label>
+          </div>
+
+          {error.gender && (
+            <p className="text-red-500 text-sm mt-1">Please select your gender</p>
+          )}
+        </div>
+
+        <button
+          type="submit"
+          className="bg-blue-500 text-white py-2 px-4 rounded w-full hover:bg-blue-600"
+        >
+          Submit
         </button>
       </form>
     </div>
@@ -93,6 +102,7 @@ const App = () => {
 };
 
 export default App;
+
 
 // //  Change Background Color
 //  Create a button that changes the background color of a div when clicked.
