@@ -1,42 +1,76 @@
-//--------------------------------------------------------------------------------------------------------------------------------------------
-
-// mini task 4. Text Input Handler
-
-import "./index.css";
-import "./App.css";
+// -----------------------------------------------------------------------------------------------------------------------
+// 5. Switch Between Multiple Titles
+// Display a title (e.g., "At library") and have buttons to switch between other titles like "At home" or "At work."
 
 import React from 'react'
-import { useState } from "react";
+import { useState } from 'react'
 
 const App = () => {
-
-  const [userInput, setUserInput] = useState("")
-
-  const submitHandler = (e)=>{
-    e.preventDefault()
-    if(userInput.trim()){
-      console.log("userInput is : " , userInput)
-      setUserInput("")
-    }else{
-      alert("Please enter valid details")
-    }
-  }
+  const [title, setTitle] = useState("At Home")
+  const locations = [
+    {name : "Home", color:"green"},
+    {name : "Library", color:"blue"},
+    {name : "College", color:"red"},
+    {name : "School", color:"pink"}
+  ]
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <form className="flex items-center space-x-2" onSubmit={submitHandler}>
-
-        <input autoComplete="off" className="px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300" type="text" value={userInput} name="userInput"  onChange={(e)=>setUserInput(e.target.value)}/>
-
-        <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all" > submit</button>
-
-
-      </form>
-        {userInput&& <div><h1  className="mt-5 text-xl font-semibold text-gray-700">Your Input :-  {userInput}</h1></div> }
+    <div className="text-center" >
+      <div>
+      <h1 className="m-10 px-2 font-semibold bg-amber-200 inline-block rounded " >{title}</h1>
+      </div>
+      {
+        locations.map((location)=>{
+          return <button key={location.name} className={`rounded px-1 bg-${location.color}-400 m-3 text-white`} onClick={()=>{setTitle(`I am at ${location.name.toLowerCase()}`)}} >{location.name}</button>
+        })
+      }
     </div>
   )
 }
 
 export default App
+
+
+
+
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
+// mini task 4. Text Input Handler
+
+// import "./index.css";
+// import "./App.css";
+
+// import React from 'react'
+// import { useState } from "react";
+
+// const App = () => {
+
+//   const [userInput, setUserInput] = useState("")
+
+//   const submitHandler = (e)=>{
+//     e.preventDefault()
+//     if(userInput.trim()){
+//       console.log("userInput is : " , userInput)
+//       setUserInput("")
+//     }else{
+//       alert("Please enter valid details")
+//     }
+//   }
+//   return (
+//     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+//       <form className="flex items-center space-x-2" onSubmit={submitHandler}>
+
+//         <input autoComplete="off" className="px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300" type="text" value={userInput} name="userInput"  onChange={(e)=>setUserInput(e.target.value)}/>
+
+//         <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all" > submit</button>
+
+
+//       </form>
+//         {userInput&& <div><h1  className="mt-5 text-xl font-semibold text-gray-700">Your Input :-  {userInput}</h1></div> }
+//     </div>
+//   )
+// }
+
+// export default App
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
 
