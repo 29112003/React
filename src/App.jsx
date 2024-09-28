@@ -1,106 +1,230 @@
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
+// mini task 4. Text Input Handler
+
 import "./index.css";
 import "./App.css";
 
-// day "Simple Form with Validation" 
-import React, { useState } from "react";
+import React from 'react'
+import { useState } from "react";
 
 const App = () => {
-  const [username, setUsername] = useState("");
-  const [gender, setGender] = useState("");
-  const [error, setError] = useState({ username: false, gender: false });
 
-  const validateForm = () => {
-    const usernameError = username.length < 5;
-    const genderError = !gender;
-    
-    setError({
-      username: usernameError,
-      gender: genderError,
-    });
-    
-    return !(usernameError || genderError);
-  };
+  const [userInput, setUserInput] = useState("")
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      console.log("Form submitted successfully");
-      console.log({ username, gender });
+  const submitHandler = (e)=>{
+    e.preventDefault()
+    if(userInput.trim()){
+      console.log("userInput is : " , userInput)
+      setUserInput("")
+    }else{
+      alert("Please enter valid details")
     }
-  };
-
+  }
   return (
-    <div className="flex items-center justify-center min-h-screen bg-rose-300">
-      <form
-        onSubmit={submitHandler}
-        className="bg-white w-full max-w-md p-8 rounded-lg shadow-md"
-      >
-        <div className="mb-4">
-          <input
-            className={`border p-2 w-full rounded ${error.username ? 'border-red-500' : 'border-gray-300'}`}
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            onInput={(e) => setError({ ...error, username: e.target.value.length < 5 })}
-          />
-          {error.username && (
-            <p className="text-red-500 text-sm mt-1">Username must be at least 5 characters long</p>
-          )}
-        </div>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <form className="flex items-center space-x-2" onSubmit={submitHandler}>
 
-        <div className="mb-4">
-          <label className="block mb-2">Gender:</label>
-          <div className="flex items-center mb-2">
-            <input
-              type="radio"
-              name="gender"
-              value="male"
-              checked={gender === "male"}
-              onChange={(e) => setGender(e.target.value)}
-            />
-            <label className="ml-2">Male</label>
-          </div>
+        <input autoComplete="off" className="px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:border-blue-300" type="text" value={userInput} name="userInput"  onChange={(e)=>setUserInput(e.target.value)}/>
 
-          <div className="flex items-center mb-2">
-            <input
-              type="radio"
-              name="gender"
-              value="female"
-              checked={gender === "female"}
-              onChange={(e) => setGender(e.target.value)}
-            />
-            <label className="ml-2">Female</label>
-          </div>
+        <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all" > submit</button>
 
-          <div className="flex items-center">
-            <input
-              type="radio"
-              name="gender"
-              value="other"
-              checked={gender === "other"}
-              onChange={(e) => setGender(e.target.value)}
-            />
-            <label className="ml-2">Other</label>
-          </div>
 
-          {error.gender && (
-            <p className="text-red-500 text-sm mt-1">Please select your gender</p>
-          )}
-        </div>
-
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded w-full hover:bg-blue-600"
-        >
-          Submit
-        </button>
       </form>
+        {userInput&& <div><h1  className="mt-5 text-xl font-semibold text-gray-700">Your Input :-  {userInput}</h1></div> }
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
+
+//--------------------------------------------------------------------------------------------------------------------------------------------
+
+// day "Simple Form with Validation" 
+// import React, { useState } from "react";
+
+// const App = () => {
+//   const [username, setUsername] = useState("");
+//   const [gender, setGender] = useState("");
+//   const [error, setError] = useState({ username: false, gender: false });
+
+//   const validateForm = () => {
+//     const usernameError = username.length < 5;
+//     const genderError = !gender;
+    
+//     setError({
+//       username: usernameError,
+//       gender: genderError,
+//     });
+    
+//     return !(usernameError || genderError);
+//   };
+
+//   const submitHandler = (e) => {
+//     e.preventDefault();
+//     if (validateForm()) {
+//       console.log("Form submitted successfully");
+//       console.log({ username, gender });
+//     }
+//   };
+
+//   return (
+//     <div className="flex items-center justify-center min-h-screen bg-rose-300">
+//       <form
+//         onSubmit={submitHandler}
+//         className="bg-white w-full max-w-md p-8 rounded-lg shadow-md"
+//       >
+//         <div className="mb-4">
+//           <input
+//             className={`border p-2 w-full rounded ${error.username ? 'border-red-500' : 'border-gray-300'}`}
+//             type="text"
+//             placeholder="Username"
+//             value={username}
+//             onChange={(e) => setUsername(e.target.value)}
+//             onInput={(e) => setError({ ...error, username: e.target.value.length < 5 })}
+//           />
+//           {error.username && (
+//             <p className="text-red-500 text-sm mt-1">Username must be at least 5 characters long</p>
+//           )}
+//         </div>
+
+//         <div className="mb-4">
+//           <label className="block mb-2">Gender:</label>
+//           <div className="flex items-center mb-2">
+//             <input
+//               type="radio"
+//               name="gender"
+//               value="male"
+//               checked={gender === "male"}
+//               onChange={(e) => setGender(e.target.value)}
+//             />
+//             <label className="ml-2">Male</label>
+//           </div>
+
+//           <div className="flex items-center mb-2">
+//             <input
+//               type="radio"
+//               name="gender"
+//               value="female"
+//               checked={gender === "female"}
+//               onChange={(e) => setGender(e.target.value)}
+//             />
+//             <label className="ml-2">Female</label>
+//           </div>
+
+//           <div className="flex items-center">
+//             <input
+//               type="radio"
+//               name="gender"
+//               value="other"
+//               checked={gender === "other"}
+//               onChange={(e) => setGender(e.target.value)}
+//             />
+//             <label className="ml-2">Other</label>
+//           </div>
+
+//           {error.gender && (
+//             <p className="text-red-500 text-sm mt-1">Please select your gender</p>
+//           )}
+//         </div>
+
+//         <button
+//           type="submit"
+//           className="bg-blue-500 text-white py-2 px-4 rounded w-full hover:bg-blue-600"
+//         >
+//           Submit
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+// bhaiya ka code kal vala 
+
+// import "./index.css";
+// // two way binding
+
+// import React, { useState } from "react";
+
+// const App = () => {
+//   const [username, setUsername] = useState("");
+//   const [error, setError] = useState(false);
+//   const [gender, setGender] = useState("others");
+
+//   const submitHandler = (e) => {
+//     e.preventDefault();
+//     console.log(gender);
+//   };
+
+//   console.log(gender);
+
+//   return (
+//     <div>
+//       <form
+//         className="flex gap-5 justify-center px-3 py-4 w-screen bg-amber-500"
+//         onSubmit={submitHandler}
+//       >
+//         <input
+//           className="rounded"
+//           type="text"
+//           name="username"
+//           placeholder="username"
+//           onInput={(e) =>
+//             e.target.value.length < 5 ? setError(true) : setError(false)
+//           }
+//           onChange={(e) => setUsername(e.target.value)}
+//           value={username}
+//         />
+
+//         {error && (
+//           <p className="text-red-500"> username must be atleast 5 char </p>
+//         )}
+
+//         <input
+//           type="radio"
+//           name="gender"
+//           // checked={gender === "others" ? true : false}
+//           defaultValue="others"
+//           onChange={(e) => setGender(e.target.value)}
+//         />
+
+//         others
+
+//         <br />
+//         <br />
+//         <input
+//           type="radio"
+//           name="gender"
+//           checked={false}
+//           defaultValue="male"
+//           onChange={(e) => setGender(e.target.value)}
+//         />
+//         male
+//         <br />
+//         <br />
+
+//         <input
+//           type="radio"
+//           name="gender"
+//           // checked={gender === "female" ? true : false}
+//           defaultValue="female"
+//           onChange={(e) => setGender(e.target.value)}
+//         />
+//         female
+
+//         <br />
+//         <br />
+//         <button className="px-4 py-1 rounded bg-blue-600 text-white">
+//           Submit
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default App;
 
 
 // //  Change Background Color
@@ -374,7 +498,7 @@ export default App;
 //   return (
 //     <>
 //       <h1>{x}</h1>
-//       <h1 >this is react vite boilerplate {import.meta.env.VITE_API}</h1>
+//       <h1 >this is react vite boilerplate {im=port.meta.env.VITE_API}</h1>
 //       <About/>
 //       <Home/>
 //       <Nav/>
