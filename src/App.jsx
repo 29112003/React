@@ -1,51 +1,142 @@
 import "./index.css";
 import "./App.css";
 
-// //  Change Background Color
-//  Create a button that changes the background color of a div when clicked.
-//  Use useState to store different colors and cycle through them.
-import React, { useState } from 'react';
+// day 7 sending error message and radio input 
+
+import React from "react";
+import { useState } from "react";
 
 const App = () => {
-  const [index, setIndex] = useState(0);
+  const [username, setUsername] = useState("");
+  const [error, setError] = useState(false);
+  const [gender, setGender] = useState("");
 
-  // Define colors in a more flexible way
-  const colors = [
-    "bg-rose-500",
-    "bg-slate-400",
-    "bg-zinc-500",
-    "bg-orange-200",
-    "bg-lime-300",
-    "bg-green-200",
-    "bg-cyan-300"
-  ];
-
-  // Function to change the index
-  const changeColor = () => {
-    setIndex((prev) => (prev + 1) % colors.length);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(e.target.username.value);
   };
 
+  const inputHandler = (e) => {
+    {
+      e.target.value.length < 5 ? setError(true) : setError(false);
+    }
+  };
+  console.log(gender);
+
   return (
-    <div className="flex flex-col items-center w-screen h-screen justify-center gap-3">
-      <div
-        className={`h-[230px] w-[230px] bg-red-200 rounded transition-all duration-500 ${colors[index]}`}
-        role="img"
-        aria-label={`Background color is ${colors[index]}`}
-      ></div>
-      <button
-        onClick={changeColor}
-        className="rounded py-1 px-3 bg-rose-500 hover:bg-rose-600 duration-500 text-white"
-        aria-label="Change background color"
+    <div>
+      <form
+        onSubmit={submitHandler}
+        className="bg-rose-300 w-screen py-5 px-3 flex-col items-center justify-center "
       >
-        Change Color
-      </button>
+        <input
+          className="rounded "
+          type="text"
+          placeholder="username"
+          name="username"
+          onInput={inputHandler}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+          value={username}
+        />
+        {error && (
+          <p className="text-red-950 ">
+            {" "}
+            username can't be under 5 characters{" "}
+          </p>
+        )}
+        <br />
+        <br />
+        <input
+          type="radio"
+          name="gender"
+          checked={gender === "male" ? true : false}
+          onChange={(e) => {
+            setGender(e.target.value);
+          }}
+          defaultValue="others"
+        />
+        others
+        <br />
+        <br />
+        <input
+          type="radio"
+          name="gender"
+          checked={gender === "male" ? true : false}
+          onChange={(e) => {
+            setGender(e.target.value);
+          }}
+          defaultValue="male"
+        />
+        male
+        <br />
+        <br />
+        <input
+          type="radio"
+          name="gender"
+          checker={gender === "female" ? true : false}
+          onChange={(e) => {
+            setGender(e.target.value);
+          }}
+          defaultValue="female"
+        />
+        female
+        <br />
+        <br />
+        <button className="bg-blue-700 px-2 text-white ml-2 rounded">
+          submit
+        </button>
+      </form>
     </div>
   );
 };
 
 export default App;
 
+// //  Change Background Color
+//  Create a button that changes the background color of a div when clicked.
+//  Use useState to store different colors and cycle through them.
+// import React, { useState } from 'react';
 
+// const App = () => {
+//   const [index, setIndex] = useState(0);
+
+//   // Define colors in a more flexible way
+//   const colors = [
+//     "bg-rose-500",
+//     "bg-slate-400",
+//     "bg-zinc-500",
+//     "bg-orange-200",
+//     "bg-lime-300",
+//     "bg-green-200",
+//     "bg-cyan-300"
+//   ];
+
+//   // Function to change the index
+//   const changeColor = () => {
+//     setIndex((prev) => (prev + 1) % colors.length);
+//   };
+
+//   return (
+//     <div className="flex flex-col items-center w-screen h-screen justify-center gap-3">
+//       <div
+//         className={`h-[230px] w-[230px] bg-red-200 rounded transition-all duration-500 ${colors[index]}`}
+//         role="img"
+//         aria-label={`Background color is ${colors[index]}`}
+//       ></div>
+//       <button
+//         onClick={changeColor}
+//         className="rounded py-1 px-3 bg-rose-500 hover:bg-rose-600 duration-500 text-white"
+//         aria-label="Change background color"
+//       >
+//         Change Color
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default App;
 
 // // day 6.2 two-way binding
 // import React from "react";
@@ -58,16 +149,15 @@ export default App;
 //     e.preventDefault();
 //   };
 
-
 //   console.log(username)
 
 //   return (
 //     <div>
 //       <form onSubmit={submitHandler}>
-//         <input 
-//         type="text" 
-//         placeholder="username" 
-//         name="username" 
+//         <input
+//         type="text"
+//         placeholder="username"
+//         name="username"
 //         onChange={(e)=>setusername(e.target.value)}
 //         value={username}
 //         />
