@@ -1,7 +1,7 @@
 import "./index.css";
 import "./App.css";
 
-// day 7 sending error message and radio input 
+// day "Simple Form with Validation" 
 import React, { useState } from "react";
 
 const App = () => {
