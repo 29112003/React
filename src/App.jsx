@@ -26,7 +26,6 @@ const App = () => {
     if (validateForm()) {
       console.log("Form submitted successfully");
       console.log({ username, gender });
-      // Perform further actions like API calls here
     }
   };
 
