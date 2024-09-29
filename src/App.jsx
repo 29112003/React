@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------------------------------------------------
 
-// underStanding the concept of props and Components 
+//day 8 underStanding the concept of props and Components 
 
 import React from 'react'
 import Card from './Components/Card'
