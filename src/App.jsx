@@ -1,43 +1,62 @@
-// -----------------------------------------------------------------------------------------------------------------------
+// // 6. Track Mouse Hover
+// Create two sections, and when you hover over a section, use useState to display a message indicating which section is being hovered over.
 
-//day 8 underStanding the concept of props and Components 
-
-import React from 'react'
-import Card from './Components/Card'
+import React, { useState } from 'react'
+import Session from './Components/Session'
 
 const App = () => {
-
-  const details = [
-    {
-      name : "keshav",
-      address: "rampur", 
-      age:69
-    },
-    {
-      name : "vishesh",
-      address: "bundelkhand", 
-      age:110
-    },
-    {
-      name : "virendra",
-      address: "ghabra", 
-      age:1000
-    },
-  ]
-
   return (
-    <div  className='flex justify-center items-center h-screen bg-gray-100'>
-          <div className='grid grid-cols-3 gap-6' >
-
-          {details.map((person , index)=>{
-            return <Card key={index} name={person.name} address = {person.address} age = {person.age}/>
-          })} 
-          </div>
+    <div className='text-center flex items-center justify-center gap-10  h-screen w-screen bg-gray-600 ' >
+      <Session name={'animal'} />
+      <Session  name={'human'}/>
     </div>
   )
 }
 
 export default App
+
+
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+//day 8 underStanding the concept of props and Components 
+
+// import React from 'react'
+// import Card from './Components/Card'
+
+// const App = () => {
+
+//   const details = [
+//     {
+//       name : "keshav",
+//       address: "rampur", 
+//       age:69
+//     },
+//     {
+//       name : "vishesh",
+//       address: "bundelkhand", 
+//       age:110
+//     },
+//     {
+//       name : "virendra",
+//       address: "ghabra", 
+//       age:1000
+//     },
+//   ]
+
+//   return (
+//     <div  className='flex justify-center items-center h-screen bg-gray-100'>
+//           <div className='grid grid-cols-3 gap-6' >
+
+//           {details.map((person , index)=>{
+//             return <Card key={index} name={person.name} address = {person.address} age = {person.age}/>
+//           })} 
+//           </div>
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
