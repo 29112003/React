@@ -1,33 +1,80 @@
 // -----------------------------------------------------------------------------------------------------------------------
-// 5. Switch Between Multiple Titles
-// Display a title (e.g., "At library") and have buttons to switch between other titles like "At home" or "At work."
+
+// underStanding the concept of props and Components 
 
 import React from 'react'
-import { useState } from 'react'
+import Card from './Components/Card'
 
 const App = () => {
-  const [title, setTitle] = useState("At Home")
-  const locations = [
-    {name : "Home", color:"green"},
-    {name : "Library", color:"blue"},
-    {name : "College", color:"red"},
-    {name : "School", color:"pink"}
+
+  const details = [
+    {
+      name : "keshav",
+      address: "rampur", 
+      age:69
+    },
+    {
+      name : "vishesh",
+      address: "bundelkhand", 
+      age:110
+    },
+    {
+      name : "virendra",
+      address: "ghabra", 
+      age:1000
+    },
   ]
+
   return (
-    <div className="text-center" >
-      <div>
-      <h1 className="m-10 px-2 font-semibold bg-amber-200 inline-block rounded " >{title}</h1>
-      </div>
-      {
-        locations.map((location)=>{
-          return <button key={location.name} className={`rounded px-1 bg-${location.color}-400 m-3 text-white`} onClick={()=>{setTitle(`I am at ${location.name.toLowerCase()}`)}} >{location.name}</button>
-        })
-      }
+    <div  className='flex justify-center items-center h-screen bg-gray-100'>
+          <div className='grid grid-cols-3 gap-6' >
+
+          {details.map((person , index)=>{
+            return <Card key={index} name={person.name} address = {person.address} age = {person.age}/>
+          })} 
+          </div>
     </div>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+// -----------------------------------------------------------------------------------------------------------------------
+// 5. Switch Between Multiple Titles
+// Display a title (e.g., "At library") and have buttons to switch between other titles like "At home" or "At work."
+
+// import React from 'react'
+// import { useState } from 'react'
+
+// const App = () => {
+//   const [title, setTitle] = useState("At Home")
+//   const locations = [
+//     {name : "Home", color:"green"},
+//     {name : "Library", color:"blue"},
+//     {name : "College", color:"red"},
+//     {name : "School", color:"pink"}
+//   ]
+//   return (
+//     <div className="text-center" >
+//       <div>
+//       <h1 className="m-10 px-2 font-semibold bg-amber-200 inline-block rounded " >{title}</h1>
+//       </div>
+//       {
+//         locations.map((location)=>{
+//           return <button key={location.name} className={`rounded px-1 bg-${location.color}-400 m-3 text-white`} onClick={()=>{setTitle(`I am at ${location.name.toLowerCase()}`)}} >{location.name}</button>
+//         })
+//       }
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
