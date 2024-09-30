@@ -1,25 +1,96 @@
+import { useForm } from "react-hook-form";
+const App = () => {
+  const {
+    watch,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  console.log(watch("username"));
+
+  const SubmitHandler = (data) => {
+    console.log(data);
+    console.log("submitted");
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit(SubmitHandler)}>
+        {/* you can suppose it as an exception */}
+        <input
+          type="text"
+          autoComplete="off"
+          name="username"
+          placeholder="Username"
+          {...register("username", {
+            required: {
+              value:true,
+              message:"Empty input can't be submitted"
+            },
+            minLength: {
+              value:5,
+              message:"Username must be at least 5 characters"
+            }
+          })}
+        />
+        {errors.username && <p style={{ color: 'red', fontSize: '12px' }} className="text-red-600 ">{errors.username.message}</p>}
+        <button>submit</button>
+      </form>
+    </div>
+  );
+};
+
+export default App;
+
+// like and dislike counter
+
+// import React, { useState } from 'react';
+
+// const App = () => {
+//   const [likeCount, setLikeCount] = useState(0);
+//   const [dislikeCount, setDislikeCount] = useState(0);
+
+//   return (
+//     <div className='flex flex-col items-center justify-center h-screen space-y-4'>
+//       <button
+//         onClick={() => setLikeCount((prev) => prev + 1)}
+//         className='px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition'>
+//         Like {likeCount} {likeCount === 1 ? 'time' : 'times'}
+//       </button>
+
+//       <button
+//         onClick={() => setDislikeCount((prev) => prev + 1)}
+//         className='px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition'>
+//         Dislike {dislikeCount} {dislikeCount === 1 ? 'time' : 'times'}
+//       </button>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+// ------------------------------------------------------------------------------------------------------------------
 // // 6. Track Mouse Hover
 // Create two sections, and when you hover over a section, use useState to display a message indicating which section is being hovered over.
 
-import React, { useState } from 'react'
-import Session from './Components/Session'
+// import React, { useState } from 'react'
+// import Session from './Components/Session'
 
-const App = () => {
-  return (
-    <div className='text-center flex items-center justify-center gap-10  h-screen w-screen bg-gray-600 ' >
-      <Session name={'animal'} />
-      <Session  name={'human'}/>
-    </div>
-  )
-}
+// const App = () => {
+//   return (
+//     <div className='text-center flex items-center justify-center gap-10  h-screen w-screen bg-gray-600 ' >
+//       <Session name={'animal'} />
+//       <Session  name={'human'}/>
+//     </div>
+//   )
+// }
 
-export default App
-
-
+// export default App
 
 // -----------------------------------------------------------------------------------------------------------------------
 
-//day 8 underStanding the concept of props and Components 
+//day 8 underStanding the concept of props and Components
 
 // import React from 'react'
 // import Card from './Components/Card'
@@ -29,17 +100,17 @@ export default App
 //   const details = [
 //     {
 //       name : "keshav",
-//       address: "rampur", 
+//       address: "rampur",
 //       age:69
 //     },
 //     {
 //       name : "vishesh",
-//       address: "bundelkhand", 
+//       address: "bundelkhand",
 //       age:110
 //     },
 //     {
 //       name : "virendra",
-//       address: "ghabra", 
+//       address: "ghabra",
 //       age:1000
 //     },
 //   ]
@@ -50,19 +121,13 @@ export default App
 
 //           {details.map((person , index)=>{
 //             return <Card key={index} name={person.name} address = {person.address} age = {person.age}/>
-//           })} 
+//           })}
 //           </div>
 //     </div>
 //   )
 // }
 
 // export default App
-
-
-
-
-
-
 
 // -----------------------------------------------------------------------------------------------------------------------
 // 5. Switch Between Multiple Titles
@@ -95,9 +160,6 @@ export default App
 
 // export default App
 
-
-
-
 //--------------------------------------------------------------------------------------------------------------------------------------------
 
 // mini task 4. Text Input Handler
@@ -129,7 +191,6 @@ export default App
 
 //         <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all" > submit</button>
 
-
 //       </form>
 //         {userInput&& <div><h1  className="mt-5 text-xl font-semibold text-gray-700">Your Input :-  {userInput}</h1></div> }
 //     </div>
@@ -140,7 +201,7 @@ export default App
 
 //--------------------------------------------------------------------------------------------------------------------------------------------
 
-// day "Simple Form with Validation" 
+// day "Simple Form with Validation"
 // import React, { useState } from "react";
 
 // const App = () => {
@@ -151,12 +212,12 @@ export default App
 //   const validateForm = () => {
 //     const usernameError = username.length < 5;
 //     const genderError = !gender;
-    
+
 //     setError({
 //       username: usernameError,
 //       gender: genderError,
 //     });
-    
+
 //     return !(usernameError || genderError);
 //   };
 
@@ -241,7 +302,7 @@ export default App
 
 // export default App;
 
-// bhaiya ka code kal vala 
+// bhaiya ka code kal vala
 
 // import "./index.css";
 // // two way binding
@@ -325,7 +386,6 @@ export default App
 // };
 
 // export default App;
-
 
 // //  Change Background Color
 //  Create a button that changes the background color of a div when clicked.
