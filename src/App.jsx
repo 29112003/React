@@ -1,25 +1,65 @@
+// 7. mini task Dynamic Class Toggle
+// Create a button that toggles between two CSS classes on an element (e.g., dark and light mode).
 
-// components and props and children
-import React from 'react'
-import About from './Components/About'
-import Card from './Components/Card'
-import Nav from './Components/Nav'
+import React, { useState } from 'react'
 
 const App = () => {
-  return (
-    <div className="w-[30%] p-10 bg-red-500 flex items-center gap-4 flex-col m-auto mt-10 rounded-lg" >
-      <About title={"hello this child one"} />
-      <Nav title={"hello this this is child two"} />
-      <Card title={"this is child three"} >
-        <h1>hello i am tag inside card</h1>
-        <button className="bg-violet-600 rounded px-2 py-1 text-white mt-1" >Explore</button>
-        </Card>
+  const [mode, setMode] = useState(true)
 
+  return (
+    <div className={`w-screen h-screen pt-10 flex flex-col ${mode?"bg-slate-200" : "bg-yellow-100" }  items-center gap-10 bg-gray-200`} >
+      <button className={`px-2 py-1 ${mode?"bg-black" : "bg-yellow-600" } text-white rounded`} onClick={()=>{setMode((prev)=>!prev)}} >{mode?"Dark mode ": "Light mode"}</button>
+      <div className="flex gap-2 " >
+
+        <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" }  rounded-sm flex items-center justify-center `}>
+          <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
+        </div>
+        <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" } rounded-sm flex items-center justify-center  `} >
+          <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
+
+          
+        </div>
+        <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" } rounded-sm flex items-center justify-center  `} >
+          <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
+
+          
+        </div>
+        <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" } rounded-sm flex items-center justify-center  `} >
+          <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
+
+          
+        </div>
+      </div>
     </div>
   )
 }
 
 export default App
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+
+// components and props and children
+// import React from 'react'
+// import About from './Components/About'
+// import Card from './Components/Card'
+// import Nav from './Components/Nav'
+
+// const App = () => {
+//   return (
+//     <div className="w-[30%] p-10 bg-red-500 flex items-center gap-4 flex-col m-auto mt-10 rounded-lg" >
+//       <About title={"hello this child one"} />
+//       <Nav title={"hello this this is child two"} />
+//       <Card title={"this is child three"} >
+//         <h1>hello i am tag inside card</h1>
+//         <button className="bg-violet-600 rounded px-2 py-1 text-white mt-1" >Explore</button>
+//         </Card>
+
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 // -----------------------------------------------------------------------------------------------------------------------
