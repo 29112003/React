@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Nav = () => {
+const Nav = (props) => {
   return (
     <div>
-      <h1>this is nav</h1>
+      <h1>{props.title}</h1>
     </div>
   )
 }

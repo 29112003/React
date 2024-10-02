@@ -1,47 +1,72 @@
-import { useForm } from "react-hook-form";
+
+// components and props and children
+import React from 'react'
+import About from './Components/About'
+import Card from './Components/Card'
+import Nav from './Components/Nav'
+
 const App = () => {
-  const {
-    watch,
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  console.log(watch("username"));
-
-  const SubmitHandler = (data) => {
-    console.log(data);
-    console.log("submitted");
-  };
-
   return (
-    <div>
-      <form onSubmit={handleSubmit(SubmitHandler)}>
-        {/* you can suppose it as an exception */}
-        <input
-          type="text"
-          autoComplete="off"
-          name="username"
-          placeholder="Username"
-          {...register("username", {
-            required: {
-              value:true,
-              message:"Empty input can't be submitted"
-            },
-            minLength: {
-              value:5,
-              message:"Username must be at least 5 characters"
-            }
-          })}
-        />
-        {errors.username && <p style={{ color: 'red', fontSize: '12px' }} className="text-red-600 ">{errors.username.message}</p>}
-        <button>submit</button>
-      </form>
-    </div>
-  );
-};
+    <div className="w-[30%] p-10 bg-red-500 flex items-center gap-4 flex-col m-auto mt-10 rounded-lg" >
+      <About title={"hello this child one"} />
+      <Nav title={"hello this this is child two"} />
+      <Card title={"this is child three"} >
+        <h1>hello i am tag inside card</h1>
+        <button className="bg-violet-600 rounded px-2 py-1 text-white mt-1" >Explore</button>
+        </Card>
 
-export default App;
+    </div>
+  )
+}
+
+export default App
+
+
+// -----------------------------------------------------------------------------------------------------------------------
+// import { useForm } from "react-hook-form";
+// const App = () => {
+//   const {
+//     watch,
+//     register,
+//     handleSubmit,
+//     formState: { errors },
+//   } = useForm();
+
+//   console.log(watch("username"));
+
+//   const SubmitHandler = (data) => {
+//     console.log(data);
+//     console.log("submitted");
+//   };
+
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit(SubmitHandler)}>
+//         {/* you can suppose it as an exception */}
+//         <input
+//           type="text"
+//           autoComplete="off"
+//           name="username"
+//           placeholder="Username"
+//           {...register("username", {
+//             required: {
+//               value:true,
+//               message:"Empty input can't be submitted"
+//             },
+//             minLength: {
+//               value:5,
+//               message:"Username must be at least 5 characters"
+//             }
+//           })}
+//         />
+//         {errors.username && <p style={{ color: 'red', fontSize: '12px' }} className="text-red-600 ">{errors.username.message}</p>}
+//         <button>submit</button>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default App;
 
 // like and dislike counter
 
