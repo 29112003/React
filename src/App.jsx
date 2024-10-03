@@ -1,40 +1,58 @@
-// 7. mini task Dynamic Class Toggle
-// Create a button that toggles between two CSS classes on an element (e.g., dark and light mode).
+// In class ( component as a wrapper)
 
-import React, { useState } from 'react'
+import React from 'react'
+import Container from './Components/Contaier'
 
 const App = () => {
-  const [mode, setMode] = useState(true)
-
   return (
-    <div className={`w-screen h-screen pt-10 flex flex-col ${mode?"bg-slate-200" : "bg-yellow-100" }  items-center gap-10 bg-gray-200`} >
-      <button className={`px-2 py-1 ${mode?"bg-black" : "bg-yellow-600" } text-white rounded`} onClick={()=>{setMode((prev)=>!prev)}} >{mode?"Dark mode ": "Light mode"}</button>
-      <div className="flex gap-2 " >
-
-        <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" }  rounded-sm flex items-center justify-center `}>
-          <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
-        </div>
-        <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" } rounded-sm flex items-center justify-center  `} >
-          <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
-
-          
-        </div>
-        <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" } rounded-sm flex items-center justify-center  `} >
-          <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
-
-          
-        </div>
-        <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" } rounded-sm flex items-center justify-center  `} >
-          <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
-
-          
-        </div>
-      </div>
-    </div>
+    <Container>
+      <h1 className="text-xl font-semibold" >kaise ho liger</h1>
+      <button className="py-1 px-3 rounded bg-stone-300" >explore</button>
+    </Container>
   )
 }
 
 export default App
+
+
+//-----------------------------------------------------------------------------------------------------------------------
+// 7. mini task Dynamic Class Toggle
+// Create a button that toggles between two CSS classes on an element (e.g., dark and light mode).
+
+// import React, { useState } from 'react'
+
+// const App = () => {
+//   const [mode, setMode] = useState(true)
+
+//   return (
+//     <div className={`w-screen h-screen pt-10 flex flex-col ${mode?"bg-slate-200" : "bg-yellow-100" }  items-center gap-10 bg-gray-200`} >
+//       <button className={`px-2 py-1 ${mode?"bg-black" : "bg-yellow-600" } text-white rounded`} onClick={()=>{setMode((prev)=>!prev)}} >{mode?"Dark mode ": "Light mode"}</button>
+//       <div className="flex gap-2 " >
+
+//         <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" }  rounded-sm flex items-center justify-center `}>
+//           <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
+//         </div>
+//         <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" } rounded-sm flex items-center justify-center  `} >
+//           <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
+
+          
+//         </div>
+//         <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" } rounded-sm flex items-center justify-center  `} >
+//           <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
+
+          
+//         </div>
+//         <div className={`w-[300px] h-[350px] ${mode?"bg-slate-400" : "bg-yellow-200" } rounded-sm flex items-center justify-center  `} >
+//           <h1 className={`font-semibold text-2xl ${mode?"text-white" : "text-black" } `} >Hello kaise ho</h1>
+
+          
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default App
 
 // ---------------------------------------------------------------------------------------------------------------------
 
