@@ -1,18 +1,61 @@
-// In class ( component as a wrapper)
-
+// css intregration
 import React from 'react'
-import Container from './Components/Contaier'
+import Applycss from './Components/Applycss'
+import Footer from './Components/Footer'
+
+
+
+const cssStyle = {
+  fontSize : "100px",
+  backgroundColor : "pink"
+}
 
 const App = () => {
   return (
-    <Container>
-      <h1 className="text-xl font-semibold" >kaise ho liger</h1>
-      <button className="py-1 px-3 rounded bg-stone-300" >explore</button>
-    </Container>
+    <div> 
+      <h1 style =  { { fontSize : "50px" , backgroundColor :"royalBlue"  }} >inline css</h1>
+      <h1 style= {cssStyle} > internal css </h1>
+      <Applycss/>
+      <Footer/>
+    </div>
   )
 }
 
 export default App
+
+
+
+
+
+// -------------------------------------------------------------------------------------------------------------------
+
+
+
+
+// my ToDo App
+
+
+
+// ToDo App
+
+
+
+// --------------------------------------------------------------------------------------------------------------------
+// In class ( component as a wrapper)
+
+// import React from 'react'
+// import Container from './Components/Contaier'
+
+// const App = () => {
+//   return (
+//     <Container>
+//       <h1 className="text-xl font-semibold" >kaise ho liger</h1>
+//       <button className="py-1 px-3 rounded bg-stone-300" >explore</button>
+//     </Container>
+//   )
+// }
+
+// export default App
 
 
 //-----------------------------------------------------------------------------------------------------------------------
