@@ -1,27 +1,46 @@
-// css intregration
-import React from 'react'
-import Applycss from './Components/Applycss'
-import Footer from './Components/Footer'
+// understanding context alternative of props and discuss about it's disadvantage props chaining unidirectional
 
+import React, { createContext, useState } from 'react'
+import Headerr from "./ForUnderstandingContext/Headerr"
 
-
-const cssStyle = {
-  fontSize : "100px",
-  backgroundColor : "pink"
-}
+export const DataContext = createContext(null);
 
 const App = () => {
+  const [username, setusername] = useState("very important baat hai kishko nahi batanaa okay")
   return (
-    <div> 
-      <h1 style =  { { fontSize : "50px" , backgroundColor :"royalBlue"  }} >inline css</h1>
-      <h1 style= {cssStyle} > internal css </h1>
-      <Applycss/>
-      <Footer/>
-    </div>
+    <DataContext.Provider value={[username , setusername]} >
+      <Headerr/>
+    </DataContext.Provider>
   )
 }
 
 export default App
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+// css intregration
+// import React from 'react'
+// import Applycss from './Components/Applycss'
+// import Footer from './Components/Footer'
+
+
+
+// const cssStyle = {
+//   fontSize : "100px",
+//   backgroundColor : "pink"
+// }
+
+// const App = () => {
+//   return (
+//     <div> 
+//       <h1 style =  { { fontSize : "50px" , backgroundColor :"royalBlue"  }} >inline css</h1>
+//       <h1 style= {cssStyle} > internal css </h1>
+//       <Applycss/>
+//       <Footer/>
+//     </div>
+//   )
+// }
+
+// export default App
 
 
 
