@@ -1,20 +1,105 @@
+// 8 oct 
+
+// folder structured
+// main.jsx
+// app.jsx > app.jsx ka children hai Child.jsx
+// --component ke andar Child.jsx
+// create folder in src contexts folder and create context inside it 
+// --contexts
+// ------TodoContext.jsx
+
+
+// main.jsx-----------------------
+
+// import { createRoot } from 'react-dom/client'
+// import App from './App.jsx'
+// import './index.css';
+// import TodoContext from './contexts/TodoContext.jsx';
+
+// createRoot(document.getElementById('root')).render(
+//         <TodoContext>
+//             <App  />
+//         </TodoContext>
+// )
+
+// ------
+
+// import React, { createContext } from 'react'
+
+// export const dataContext = createContext(null)
+
+// const TodoContext = (props) => {
+
+//   return (
+//     <dataContext.Provider value={"very improtant baat"} >
+//         {props.children}
+//     </dataContext.Provider>
+//   )
+// }
+
+// export default TodoContext
+
+// ----------
+
+// import React, {  } from 'react'
+// import Cild from "./components/Child"
+
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Cild/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// ----------------
+
+
+// import React, { useContext } from 'react'
+// import { dataContext } from '../contexts/TodoContext'
+
+// const Child = () => {
+//   const data = useContext(dataContext)
+//   return (
+//     <div>
+//       {data}
+//       <br />
+//       <br />
+//       app ka child
+//     </div>
+//   )
+// }
+
+// export default Child
+
+// -------------
+
+
+
+
+
+// --------------------------------------------------------------------------------------------------------------
+// data 7 oct
 // understanding context alternative of props and discuss about it's disadvantage props chaining unidirectional
 
-import React, { createContext, useState } from 'react'
-import Headerr from "./ForUnderstandingContext/Headerr"
+// import React, { createContext, useState } from 'react'
+// import Headerr from "./ForUnderstandingContext/Headerr"
 
-export const DataContext = createContext(null);
+// export const DataContext = createContext(null);
 
-const App = () => {
-  const [username, setusername] = useState("very important baat hai kishko nahi batanaa okay")
-  return (
-    <DataContext.Provider value={[username , setusername]} >
-      <Headerr/>
-    </DataContext.Provider>
-  )
-}
+// const App = () => {
+//   const [username, setusername] = useState("very important baat hai kishko nahi batanaa okay")
+//   return (
+//     <DataContext.Provider value={[username , setusername]} >
+//       <Headerr/>
+//     </DataContext.Provider>
+//   )
+// }
 
-export default App
+// export default App
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------
 // css intregration
